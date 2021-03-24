@@ -1,0 +1,17 @@
+# docker-compose up --scale nginx=4 -d
+version: '3'
+services:
+  nginx:
+    image: nginx
+    ports:
+         - "8081"
+         - "8082"
+         - "8083"
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "8080:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock 
+    environment:
+            - VIRTUAL_HOST=tp1-proxy      

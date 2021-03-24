@@ -13,5 +13,3 @@ services:
       - "8080:80"
     volumes:
       - /var/run/docker.sock:/tmp/docker.sock 
-    environment:
-            - VIRTUAL_HOST=tp1-proxy      
